@@ -1,0 +1,3 @@
+echo Building the project to update the configuration....
+echo 
+mvn clean install & java -jar target\demo-0.0.1-SNAPSHOT.jar
