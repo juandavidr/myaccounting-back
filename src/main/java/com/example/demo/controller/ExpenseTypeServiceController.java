@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.ExpenseType;
-import com.example.demo.service.ExpenseTypeService;
+import com.example.demo.service.interfaces.ExpenseTypeService;
 
 @RestController
 public class ExpenseTypeServiceController {

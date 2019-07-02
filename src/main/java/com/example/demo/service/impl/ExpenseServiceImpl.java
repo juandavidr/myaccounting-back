@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -7,16 +7,17 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.data.ExpenseTypeRepository;
-import com.example.demo.model.ExpenseType;
+import com.example.demo.data.ExpenseRepository;
+import com.example.demo.model.Expense;
+import com.example.demo.service.interfaces.ExpenseService;
 
 @Service
-public class ExpenseTypeServiceImpl implements ExpenseTypeService {
+public class ExpenseServiceImpl implements ExpenseService {
 	@Autowired
-	ExpenseTypeRepository repository;
+	ExpenseRepository repository;
 
 	@Override
-	public void createExpenseType(ExpenseType expense) {
+	public void createExpense(Expense expense) {
 		expense.setCreateDate(LocalDateTime.now());
 		expense.setUpdateDate(LocalDateTime.now());
 		repository.save(expense);
@@ -24,25 +25,25 @@ public class ExpenseTypeServiceImpl implements ExpenseTypeService {
 	}
 
 	@Override
-	public void updateExpenseType(Long id, ExpenseType expense) {
+	public void updateExpense(Long id, Expense expense) {
 		expense.setUpdateDate(LocalDateTime.now());
 		repository.save(expense);
 	}
 
 	@Override
-	public void deleteExpenseType(Long id) {
+	public void deleteExpense(Long id) {
 		repository.deleteById(id);
 	}
 
 	@Override
-	public Collection<ExpenseType> getExpenseTypes() {
-		Collection<ExpenseType> cltn = new ArrayList<ExpenseType>();
+	public Collection<Expense> getExpenses() {
+		Collection<Expense> cltn = new ArrayList<Expense>();
 		repository.findAll().forEach(cltn::add);
 		return cltn;
 	}
 
 	@Override
-	public ExpenseType getExpenseType(Long id) {		
+	public Expense getExpense(Long id) {		
 		return repository.findById(id).get();
 	}
 }

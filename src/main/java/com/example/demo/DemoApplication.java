@@ -59,6 +59,7 @@ public class DemoApplication {
 				registry.addMapping("/").allowedOrigins("http://localhost:8761");
 				registry.addMapping("/expenses").allowedOrigins("http://localhost:3000");
 				registry.addMapping("/expenses-types").allowedOrigins("http://localhost:3000");
+				registry.addMapping("/payment-type").allowedOrigins("http://localhost:3000");
 			}
 		};
 	}
